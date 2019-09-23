@@ -5,7 +5,7 @@ const postRoll = async (response) => {
   try {
     const params = {
       "bot_id": process.env.BOT_ID,
-      // "attachments": response.attachments,
+      "attachments": response.attachments,
       "text": response.text
     }
   
@@ -52,12 +52,11 @@ const bot = async (body) => {
   if (command) {
     try {
       const userRoll = processCommand(command);
-      console.log('userRoll: ', userRoll);
       const response = {
-        // attachments: [{
-        //   'type': 'mentions',
-        //   'user_ids': [body.sender_id]
-        // }],
+        attachments: [{
+          'type': 'mentions',
+          'user_ids': [body.sender_id]
+        }],
         text: userRoll
       };
       const res = await postRoll(response);

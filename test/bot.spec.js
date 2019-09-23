@@ -74,7 +74,7 @@ describe('Testing the dice roller bot', function() {
 
     try {
       const response = await bot(message);
-      console.log('bot response! ', response);
+      console.log('bot response! ', response.status);
     } catch (e) {
       console.error(e);
     }
