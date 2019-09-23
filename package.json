@@ -1,0 +1,19 @@
+{
+  "name": "dice-roller-bot-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nkooinga/dice-roller-bot-lambda.git",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "rpg-dice-roller": "3.0",
+    "superagent": "^5.1.0"
+  }
+}
