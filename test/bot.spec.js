@@ -1,10 +1,10 @@
-const rollDice = require('../roller');
+const rollDice = require('../src/roller');
 const {
   postRoll,
   processMessage,
   processCommand,
   bot
-} = require('../bot');
+} = require('../src/bot');
 
 
 describe('Testing the dice roller bot', function() {

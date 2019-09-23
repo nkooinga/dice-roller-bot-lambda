@@ -9,8 +9,8 @@ exports.handler = async (event) => {
     const response = {
       statusCode: res.status,
       body: JSON.stringify(''),
-  };
-  return response;
+    };
+    return response;
   } catch (e) {
     console.error('HANDLER ERROR: ', e);
   }
