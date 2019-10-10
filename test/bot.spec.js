@@ -4,7 +4,7 @@ const {
   processMessage,
   processCommand,
   bot
-} = require('../src/bot');
+} = require('../src');
 
 
 describe('Testing the dice roller bot', function() {

@@ -59,7 +59,9 @@ const bot = async (body) => {
         }],
         text: userRoll
       };
+      console.log('response is: ', response);
       const res = await postRoll(response);
+      console.log('res is: ', res);
       return res;
     } catch (error) {
       console.error(e);
