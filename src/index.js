@@ -4,11 +4,12 @@ const rollDice = require('./roller');
 const postRoll = async (response) => {
   try {
     const params = {
-      "bot_id": process.env.BOT_ID,
-      "attachments": response.attachments,
-      "text": response.text
+      bot_id: process.env.BOT_ID,
+      attachments: response.attachments,
+      text: response.text
     }
   
+    console.log('message attachments are: ', response.attachments);
     const res = await request.post('https://api.groupme.com/v3/bots/post').send(params);
     return res;
     
@@ -24,11 +25,11 @@ const processCommand = (command) => {
   if (stats) {
     return [
       rollDice('4d6-L'),
-      rollDice('4d6-L'),
-      rollDice('4d6-L'),
-      rollDice('4d6-L'),
-      rollDice('4d6-L'),
-      rollDice('4d6-L')
+      '\n' + rollDice('4d6-L'),
+      '\n' + rollDice('4d6-L'),
+      '\n' + rollDice('4d6-L'),
+      '\n' + rollDice('4d6-L'),
+      '\n' + rollDice('4d6-L')
     ].toString();
   } else {
     return rollDice(command[1]);
@@ -48,24 +49,27 @@ const processMessage = (body) => {
 
 const bot = async (body) => {
   const command = processMessage(body);
+  const tagName = `@${body.name}`;
+  const nameLoci = tagName.length;
+  console.log('nameLoci length: ', nameLoci);
 
   if (command) {
     try {
       const userRoll = processCommand(command);
       const response = {
         attachments: [{
-          'type': 'mentions',
-          'user_ids': [body.sender_id]
+          type: 'mentions',
+          loci: [[0,nameLoci]],
+          user_ids: [body.user_id]
         }],
-        text: userRoll
+        text: `${tagName} ${userRoll}`
       };
-      console.log('response is: ', response);
+      
       const res = await postRoll(response);
-      console.log('res is: ', res);
       return res;
     } catch (error) {
-      console.error(e);
-      throw e;
+      console.error(error);
+      throw error;
     }
   }
 };

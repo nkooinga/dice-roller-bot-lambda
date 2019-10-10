@@ -32,53 +32,53 @@ describe('Testing the dice roller bot', function() {
     console.log('test stats! ', roll);
   });
 
-  it('should process a message', async function() {
-    try {
-      const message = {
-        "attachments": [],
-        "avatar_url": "https://i.groupme.com/123456789",
-        "created_at": 1302623328,
-        "group_id": "53857750",
-        "id": "1234567890",
-        "name": "nick",
-        "sender_id": "12345",
-        "sender_type": "user",
-        "source_guid": "GUID",
-        "system": false,
-        "text": "@roll 1d20",
-        "user_id": "1234567890"
-      }
+  // it('should process a message', async function() {
+  //   try {
+  //     const message = {
+  //       "attachments": [],
+  //       "avatar_url": "https://i.groupme.com/123456789",
+  //       "created_at": 1302623328,
+  //       "group_id": "53857750",
+  //       "id": "1234567890",
+  //       "name": "nick",
+  //       "sender_id": "12345",
+  //       "sender_type": "user",
+  //       "source_guid": "GUID",
+  //       "system": false,
+  //       "text": "@roll 1d20",
+  //       "user_id": "1234567890"
+  //     }
 
-      await processMessage(message);
+  //     await processMessage(message);
 
-    } catch (e) {
-      console.error(e);
-    }
-  });
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // });
 
-  it('should run the full bot', async function() {
-    const message = {
-      "attachments": [],
-      "avatar_url": "https://i.groupme.com/123456789",
-      "created_at": 1302623328,
-      "group_id": "53857750",
-      "id": "1234567890",
-      "name": "nick",
-      "sender_id": "12345",
-      "sender_type": "user",
-      "source_guid": "GUID",
-      "system": false,
-      "text": "@roll stats",
-      "user_id": "1234567890"
-    };
+  // it('should run the full bot', async function() {
+  //   const message = {
+  //     "attachments": [],
+  //     "avatar_url": "https://i.groupme.com/123456789",
+  //     "created_at": 1302623328,
+  //     "group_id": "53857750",
+  //     "id": "1234567890",
+  //     "name": "nick",
+  //     "sender_id": "12345",
+  //     "sender_type": "user",
+  //     "source_guid": "GUID",
+  //     "system": false,
+  //     "text": "@roll stats",
+  //     "user_id": "1234567890"
+  //   };
 
-    try {
-      const response = await bot(message);
-      console.log('bot response! ', response.status);
-    } catch (e) {
-      console.error(e);
-    }
-  })
+  //   try {
+  //     const response = await bot(message);
+  //     console.log('bot response! ', response.status);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // })
 
   
 })
